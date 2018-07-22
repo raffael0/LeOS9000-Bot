@@ -5,6 +5,8 @@ import Commands.Administration.GameCommand;
 import Commands.Administration.PrefixCommand;
 import Commands.Administration.RebootCommand;
 import Commands.Administration.UpdateCommand;
+import Commands.Information.GithubCMD;
+import Commands.Information.InviteCMD;
 import Commands.UserInteraction.FeedbackCommand;
 import Commands.UserInteraction.GlobalChatCMD;
 import Listeners.GlobalChatListener;
@@ -29,7 +31,7 @@ public class Main {
 
         CommandClientBuilder cbuilder = new CommandClientBuilder().setPrefix(BotUtil.getPrefix()).setOwnerId(BotUtil.getOwner());
 
-        cbuilder.addCommands(new GameCommand(), new PrefixCommand(), new RebootCommand(), new UpdateCommand(), new GlobalChatCMD(), new FeedbackCommand());
+        cbuilder.addCommands(new GameCommand(), new PrefixCommand(), new RebootCommand(), new UpdateCommand(), new GlobalChatCMD(), new FeedbackCommand(), new GithubCMD(), new InviteCMD());
 
         CommandClient client = cbuilder.build();
 
