@@ -29,7 +29,6 @@ public class ScrambleCMD extends Command {
                     .setParameter("fmt", "png")
                     .setParameter("size", "500")
                     .setParameter("cc","black")
-                    .setParameter("bg", "black")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
                     .build();
         } catch (URISyntaxException e) {
