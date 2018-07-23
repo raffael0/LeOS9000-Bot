@@ -28,9 +28,8 @@ public class ScrambleCMD extends Command {
                     .setPath("/visualcube/visualcube.php")
                     .setParameter("fmt", "png")
                     .setParameter("size", "500")
-                    .setParameter("co", "15")
-                    .setParameter("view", "trans")
                     .setParameter("cc","black")
+                    .setParameter("bg", "black")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
                     .build();
         } catch (URISyntaxException e) {
@@ -39,6 +38,30 @@ public class ScrambleCMD extends Command {
         HttpGet httpget = new HttpGet(uri);
         eb.setImage(httpget.getURI().toString());
         eb.setTitle(event.getArgs());
+        event.reply(eb.build());
+
+        uri = null;
+        eb.clear();
+
+        try {
+            uri = new URIBuilder()
+                    .setScheme("http")
+                    .setHost("roudai.net")
+                    .setPath("/visualcube/visualcube.php")
+                    .setParameter("fmt", "png")
+                    .setParameter("size", "500")
+                    .setParameter("cc","black")
+                    .setParameter("bg", "black")
+                    .setParameter("sch","wgoybr")
+                    .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
+                    .build();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        httpget = new HttpGet(uri);
+        eb.setImage(httpget.getURI().toString());
+        eb.setFooter("images generated using VisualCube", "http://cube.crider.co.uk/visualcube_4.gif");
         event.reply(eb.build());
     }
 }
