@@ -31,6 +31,7 @@ public class ScrambleCMD extends Command {
                     .setParameter("co", "15")
                     .setParameter("view", "trans")
                     .setParameter("cc","black")
+                    .setParameter("fo", "50")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
                     .build();
         } catch (URISyntaxException e) {
