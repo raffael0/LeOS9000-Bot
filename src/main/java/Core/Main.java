@@ -5,6 +5,7 @@ import Commands.Administration.GameCommand;
 import Commands.Administration.PrefixCommand;
 import Commands.Administration.RebootCommand;
 import Commands.Administration.UpdateCommand;
+import Commands.Administration.WatchingCommand;
 import Commands.Information.GithubCMD;
 import Commands.Information.InviteCMD;
 import Commands.UserInteraction.FeedbackCommand;
