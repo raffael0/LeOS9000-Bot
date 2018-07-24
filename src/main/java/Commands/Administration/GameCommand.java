@@ -17,6 +17,6 @@ public class GameCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         event.getJDA().getPresence().setGame(Game.playing(event.getArgs()));
-        event.reply("now playing" + event.getJDA().getPresence().getGame().getName());
+        event.reply("now playing " + event.getJDA().getPresence().getGame().getName());
     }
 }

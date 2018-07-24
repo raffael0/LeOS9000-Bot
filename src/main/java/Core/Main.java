@@ -3,7 +3,12 @@ package Core;
 
 import Commands.Administration.*;
 import Commands.Cubing.ScrambleCMD;
-import Commands.Fun.ImageCMD;
+import Commands.Cubing.Subsets.CFOP.CrossCMD;
+import Commands.Cubing.Subsets.CFOP.F2LCMD;
+import Commands.Cubing.Subsets.CFOP.OLLCMD;
+import Commands.Cubing.Subsets.Roux.CMLLCMD;
+import Commands.Cubing.Subsets.Roux.F2BCMD;
+import Commands.Cubing.WCA.*;
 import Commands.Fun.WebCMD;
 import Commands.Information.GithubCMD;
 import Commands.Information.InviteCMD;
@@ -22,7 +27,6 @@ import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Guild;
 
 import javax.security.auth.login.LoginException;
-import java.awt.*;
 
 public class Main {
     static String token = BotUtil.getToken();
@@ -35,7 +39,8 @@ public class Main {
         CommandClientBuilder cbuilder = new CommandClientBuilder().setPrefix(BotUtil.getPrefix()).setOwnerId(BotUtil.getOwner());
 
         cbuilder.addCommands(new GameCommand(), new PrefixCommand(), new RebootCommand(), new UpdateCommand(), new GlobalChatCMD(), new FeedbackCommand(), new GithubCMD(), new InviteCMD(),
-                new WatchingCommand(), new WebCMD(), new ImageCMD(), new ScrambleCMD());
+                new WatchingCommand(), new WebCMD(), new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new Scramble4CMD(), new Scramble5CMD(), new Scramble6CMD(), new Scramble7CMD(),
+                new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD());
 
         CommandClient client = cbuilder.build();
 
@@ -66,5 +71,3 @@ public class Main {
 
     public static EventWaiter getWaiter(){ return waiter; };
 }
-
-
