@@ -9,6 +9,7 @@ import Commands.Cubing.Subsets.CFOP.OLLCMD;
 import Commands.Cubing.Subsets.Roux.CMLLCMD;
 import Commands.Cubing.Subsets.Roux.F2BCMD;
 import Commands.Cubing.WCA.*;
+import Commands.Fun.ImageCMD;
 import Commands.Fun.WebCMD;
 import Commands.Information.GithubCMD;
 import Commands.Information.InviteCMD;
@@ -40,7 +41,7 @@ public class Main {
 
         cbuilder.addCommands(new GameCommand(), new PrefixCommand(), new RebootCommand(), new UpdateCommand(), new GlobalChatCMD(), new FeedbackCommand(), new GithubCMD(), new InviteCMD(),
                 new WatchingCommand(), new WebCMD(), new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new Scramble4CMD(), new Scramble5CMD(), new Scramble6CMD(), new Scramble7CMD(),
-                new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD());
+                new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(), new ImageCMD());
 
         CommandClient client = cbuilder.build();
 
