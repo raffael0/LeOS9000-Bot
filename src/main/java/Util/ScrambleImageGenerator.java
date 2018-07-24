@@ -16,8 +16,8 @@ public class ScrambleImageGenerator {
         try {
             uri = new URIBuilder()
                     .setScheme("http")
-                    .setHost("roudai.net")
-                    .setPath("/visualcube/visualcube.php")
+                    .setHost("cube.leonunner.com")
+                    .setPath("visualcube.php")
                     .setParameter("fmt", "png")
                     .setParameter("size", "500")
                     .setParameter("cc","black")
@@ -31,6 +31,7 @@ public class ScrambleImageGenerator {
         HttpGet httpget = new HttpGet(uri);
         eb.setImage(httpget.getURI().toString());
         eb.setTitle(puzzle + "x" + puzzle + " Scramble");
+        System.out.println(httpget.getURI().toString());
         eb.setDescription(event.getArgs());
         event.reply(eb.build());
 
@@ -40,8 +41,8 @@ public class ScrambleImageGenerator {
         try {
             uri = new URIBuilder()
                     .setScheme("http")
-                    .setHost("roudai.net")
-                    .setPath("/visualcube/visualcube.php")
+                    .setHost("cube.leonunner.com")
+                    .setPath("visualcube.php")
                     .setParameter("fmt", "png")
                     .setParameter("size", "500")
                     .setParameter("cc","black")
