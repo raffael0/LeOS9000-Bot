@@ -1,13 +1,9 @@
 package Commands.Cubing;
 
+import Core.Main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.EmbedBuilder;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.utils.URIBuilder;
-
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class ScrambleCMD extends Command {
     public ScrambleCMD(){
@@ -20,48 +16,12 @@ public class ScrambleCMD extends Command {
     protected void execute(CommandEvent event) {
         EmbedBuilder eb = new EmbedBuilder();
 
-        URI uri = null;
-        try {
-            uri = new URIBuilder()
-                    .setScheme("http")
-                    .setHost("roudai.net")
-                    .setPath("/visualcube/visualcube.php")
-                    .setParameter("fmt", "png")
-                    .setParameter("size", "500")
-                    .setParameter("cc","black")
-                    .setParameter("bg", "black")
-                    .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
-                    .build();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        HttpGet httpget = new HttpGet(uri);
-        eb.setImage(httpget.getURI().toString());
-        eb.setTitle(event.getArgs());
-        event.reply(eb.build());
+        eb.setTitle("Scramble Command");
+        eb.setThumbnail(Main.getJDA().getSelfUser().getAvatarUrl());
+        eb.setDescription("Use one of the following commands to generate images. Put your scramble after the command, like this: \n\n.sc3 R U R' U'\n\nDifferent Commands:");
+        eb.addField("WCA", "sc2 - 2x2\nsc3 - 3x3\nsc4 - 4x4\nsc5 - 5x5\nsc6 - 6x6\nsc7 - 7x7", true);
+        eb.addField("Subsets", "cross - Cross\nf2l - F2L\noll - OLL\nf2b - F2B\ncmll - CMLL", true);
 
-        uri = null;
-        eb.clear();
-
-        try {
-            uri = new URIBuilder()
-                    .setScheme("http")
-                    .setHost("roudai.net")
-                    .setPath("/visualcube/visualcube.php")
-                    .setParameter("fmt", "png")
-                    .setParameter("size", "500")
-                    .setParameter("cc","black")
-                    .setParameter("bg", "black")
-                    .setParameter("sch","wgoybr")
-                    .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
-                    .build();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-        httpget = new HttpGet(uri);
-        eb.setImage(httpget.getURI().toString());
-        eb.setFooter("images generated using VisualCube", "http://cube.crider.co.uk/visualcube_4.gif");
         event.reply(eb.build());
     }
 }
