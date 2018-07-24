@@ -66,8 +66,8 @@ public class ScrambleImageGenerator {
         try {
             uri = new URIBuilder()
                     .setScheme("http")
-                    .setHost("roudai.net")
-                    .setPath("/visualcube/visualcube.php")
+                    .setHost("cube.leonunner.com")
+                    .setPath("visualcube.php")
                     .setParameter("fmt", "png")
                     .setParameter("size", "500")
                     .setParameter("cc","black")
@@ -90,8 +90,8 @@ public class ScrambleImageGenerator {
         try {
             uri = new URIBuilder()
                     .setScheme("http")
-                    .setHost("roudai.net")
-                    .setPath("/visualcube/visualcube.php")
+                    .setHost("cube.leonunner.com")
+                    .setPath("visualcube.php")
                     .setParameter("fmt", "png")
                     .setParameter("size", "500")
                     .setParameter("cc","black")
