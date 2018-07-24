@@ -58,7 +58,16 @@ public class Main {
             for (Guild guild : (jda.getGuilds())) {
                 count++;
             }
-            jda.getPresence().setGame(Game.watching("anime"));
+
+            int servers = 0;
+            int users = 0;
+
+            for(int i = 0; i<getJDA().getGuilds().size(); i++){
+                servers += 1;
+                users += getJDA().getGuilds().get(i).getMembers().size();
+            }
+
+            getJDA().getPresence().setGame(Game.watching(servers + " servers and " + users + " users"));
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
