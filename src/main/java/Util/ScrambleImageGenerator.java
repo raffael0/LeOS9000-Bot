@@ -23,6 +23,7 @@ public class ScrambleImageGenerator {
                     .setParameter("cc","black")
                     .setParameter("bg", "black")
                     .setParameter("pzl", puzzle)
+                    .setParameter("sch","yogwrb")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
                     .build();
         } catch (URISyntaxException e) {
@@ -48,6 +49,7 @@ public class ScrambleImageGenerator {
                     .setParameter("cc","black")
                     .setParameter("bg", "black")
                     .setParameter("pzl", puzzle)
+                    .setParameter("sch","yogwrb")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+","")+"x2y'")
                     .build();
         } catch (URISyntaxException e) {
@@ -74,6 +76,7 @@ public class ScrambleImageGenerator {
                     .setParameter("cc","black")
                     .setParameter("bg", "black")
                     .setParameter("stage", subset)
+                    .setParameter("sch","yogwrb")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
                     .build();
         } catch (URISyntaxException e) {
@@ -98,6 +101,7 @@ public class ScrambleImageGenerator {
                     .setParameter("cc","black")
                     .setParameter("bg", "black")
                     .setParameter("stage", subset)
+                    .setParameter("sch","yogwrb")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+","")+"x2y'")
                     .build();
         } catch (URISyntaxException e) {
