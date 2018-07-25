@@ -6,6 +6,8 @@
 
 The LeOS9000 Bot features several commands and focuses on speedcubing. It has a cubing only mode which blocks all non cubing related commands from being used. This is especially useful 
 
+[Add the bot to your server](https://discordapp.com/api/oauth2/authorize?client_id=460120329264693258&permissions=121856&scope=bot)
+
 ## Global Chat
 ![Imgur](https://i.imgur.com/4rQ9v5o.png)                                               
 The global chat connects all servers that the bot is currently on. To use it, you must have a channel named "#global" on your server. You can connect to the global chat using 
