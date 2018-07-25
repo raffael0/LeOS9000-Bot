@@ -1,5 +1,6 @@
 package Commands.UserInteraction;
 
+import Util.BotUtil;
 import Util.GlobalChatUtil;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
@@ -21,23 +22,27 @@ public class GlobalChatCMD extends Command {
                 GlobalChatUtil.removeServer(event.getGuild().getId());
                 event.reply("disconnected from global chat");
             } else if(event.getArgs().equals("connect")){
-                GlobalChatUtil.addServer(event.getGuild().getId(), event.getGuild().getName());
-                event.reply("connected to global chat. I do not take any responsibility for the content posted here");
+                if(GlobalChatUtil.isConnected(event.getGuild().getId())){
+                    event.reply("Error, you are already connected to the global chat!");
+                } else {
+                    GlobalChatUtil.addServer(event.getGuild().getId(), event.getGuild().getName());
+                    event.reply("connected to global chat. I do not take any responsibility for the content posted here");
 
-                EmbedBuilder eb = new EmbedBuilder();
-                eb.setColor(2);
+                    EmbedBuilder eb = new EmbedBuilder();
+                    eb.setColor(2);
 
-                String[] arr = GlobalChatUtil.getIdArray();
-                String description = "";
+                    String[] arr = GlobalChatUtil.getIdArray();
+                    String description = "";
 
-                for(int i = 0; i<arr.length; i++){
-                    description += GlobalChatUtil.getServerName(arr[i]) + "\n";
+                    for (int i = 0; i < arr.length; i++) {
+                        description += GlobalChatUtil.getServerName(arr[i]) + "\n";
+                    }
+
+                    eb.setTitle("Connected Servers");
+                    eb.setDescription(description);
+
+                    event.reply(eb.build());
                 }
-
-                eb.setTitle("Connected Servers");
-                eb.setDescription(description);
-
-                event.reply(eb.build());
 
             } else if(event.getArgs().isEmpty()){
                 EmbedBuilder eb = new EmbedBuilder();
