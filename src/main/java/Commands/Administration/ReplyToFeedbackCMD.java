@@ -23,6 +23,7 @@ public class ReplyToFeedbackCMD extends Command {
         eb.setTitle("The bots developer responded to your feedback!");
         eb.setDescription(message);
         eb.setFooter("Please do not reply to this message by sending another feedback message. Please join the support server instead", event.getSelfUser().getAvatarUrl());
+        event.getMessage().addReaction("✅");
         event.getJDA().getUserById(id).openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage(eb.build()).queue());
     }
 }
