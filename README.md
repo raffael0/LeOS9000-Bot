@@ -1,6 +1,36 @@
-# LeOS9000
+# LeOS 9000
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/god.svg)](http://lunagao.github.io/BlessYourCodeTag/) 
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/jesus.svg)](http://lunagao.github.io/BlessYourCodeTag/) 
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/allah.svg)](http://lunagao.github.io/BlessYourCodeTag/) 
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/ramen.svg)](http://lunagao.github.io/BlessYourCodeTag/) 
-<br />The best Bot out there! I'm going to add an invite link when I fix some issues
+
+The LeOS9000 Bot features several commands and focuses on speedcubing. It has a cubing only mode which blocks all non cubing related commands from being used. This is especially useful 
+
+## Global Chat
+![Imgur](https://i.imgur.com/4rQ9v5o.png)                                               
+The global chat connects all servers that the bot is currently on. To use it, you must have a channel named "#global" on your server. You can connect to the global chat using 
+```.global connect```
+After that, you can just write messages into the #global channel and the bot will deliver it to all the other servers connected to the global chat! To show all the connected servers, just use 
+```.global```
+If you wish to disconnect from the global chat, use 
+```.global disconnect```
+Note that the bot disconnects all servers from the global chat when it updates itself!
+
+## The .image and the .web commands
+The ```.image``` command gives you an interactive menu to browse all the images on a webpage!
+![Imgur](https://i.imgur.com/uSSiAka.png)                                                             
+The ```.web``` command gets all text content from a website and displays it as a discord message
+[Imgur](https://i.imgur.com/b576YSf.png)                                                                                
+Note that these two features are highly experimental and may not always work right, particularly the ```.web``` command
+
+## Scramble Commands
+![Imgur](https://i.imgur.com/hdnoU8x.png)                                                                     
+Using the .drawscramble command will give you the menu pictured above. When using the .sc[N] command, the bot will provide you with an interactive menu where you can switch between two images that show the full view of the cube. 
+![Imgur](https://i.imgur.com/s1z1wio.png)                                                     
+It also features dedicated views of subsets, such as f2l. Feel free to play around with the commands yourself!
+
+## Cubing Mode
+Using the .cubing command will allow you to change the cubing mode settings of your server. If you turn it on using
+```.cubing on```
+the bot will only respond to cubing related commands. This excludes the image and the web commands. To turn it off, just use
+```.cubing off```
