@@ -15,9 +15,11 @@ public class FeedbackCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         EmbedBuilder eb = new EmbedBuilder();
-        eb.setTitle("User : " + event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator() + " on " + event.getGuild().getName() + " in #" + event.getChannel().getName());
+        eb.setTitle("User : " + event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() +") on " + event.getGuild().getName() + " in #" + event.getChannel().getName());
         eb.setDescription(event.getArgs());
         event.getJDA().getGuildById(BotUtil.getServer()).getTextChannelById(BotUtil.getChannel()).sendMessage(eb.build()).queue();
+
+        event.reply("successfully sent feedback to the bots developer!");
     }
 }
 
