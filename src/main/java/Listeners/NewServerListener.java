@@ -10,6 +10,6 @@ public class NewServerListener extends ListenerAdapter {
     public void onGuildJoin(GuildJoinEvent event){
         CubingCMDUtil.setFalse(event.getGuild().getId());
 
-        event.getJDA().getTextChannelById(BotUtil.getStatus()).sendMessage("Just joined server " + event.getGuild().getName() + " (" + event.getGuild().getId() + ")").queue();
+        event.getJDA().getTextChannelById(BotUtil.getStatus()).sendMessage("Just joined server \"" + event.getGuild().getName() + "\" (" + event.getGuild().getId() + "), which has " + event.getGuild().getMembers().size() + " members").queue();
     }
 }
