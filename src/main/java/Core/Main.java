@@ -16,7 +16,7 @@ import Commands.Information.InviteCMD;
 import Commands.UserInteraction.FeedbackCommand;
 import Commands.UserInteraction.GlobalChatCMD;
 import Listeners.GlobalChatListener;
-import Listeners.ReadyListener;
+import Listeners.NewServerListener;
 import Util.BotUtil;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
@@ -48,7 +48,7 @@ public class Main {
         waiter = new EventWaiter();
 
         builder.addEventListener(waiter);
-        builder.addEventListener(new ReadyListener());
+        builder.addEventListener(new NewServerListener());
         builder.addEventListener(new GlobalChatListener());
         builder.addEventListener(client);
 
