@@ -1,6 +1,7 @@
 package Commands.Fun;
 
 import Core.Main;
+import Util.CubingCMDUtil;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.menu.Paginator;
@@ -23,29 +24,30 @@ public class ImageCMD extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
+        if(CubingCMDUtil.getStatus(event.getGuild().getId()).equals("off")) {
+            Slideshow.Builder builder = new Slideshow.Builder();
+            builder.setEventWaiter(Main.getWaiter());
+            builder.waitOnSinglePage(true);
+            builder.wrapPageEnds(true);
+            builder.setBulkSkipNumber(3);
+            builder.setText("Images from " + event.getArgs());
 
-        Slideshow.Builder builder = new Slideshow.Builder();
-        builder.setEventWaiter(Main.getWaiter());
-        builder.waitOnSinglePage(true);
-        builder.wrapPageEnds(true);
-        builder.setBulkSkipNumber(3);
-        builder.setText("Images from " + event.getArgs());
+            Document doc = null;
 
-        Document doc = null;
+            try {
+                doc = Jsoup.connect(event.getArgs()).ignoreContentType(true).get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        try {
-            doc = Jsoup.connect(event.getArgs()).ignoreContentType(true).get();
-        } catch (IOException e) {
-            e.printStackTrace();
+            Elements images = doc.select("img");
+
+            for (Element e : images) {
+                builder.addItems(e.attr("abs:src"));
+            }
+
+            Slideshow list = builder.build();
+            list.paginate(event.getChannel(), 1);
         }
-
-        Elements images = doc.select("img");
-
-        for (Element e : images) {
-            builder.addItems(e.attr("abs:src"));
-        }
-
-        Slideshow list = builder.build();
-        list.paginate(event.getChannel(), 1);
     }
 }

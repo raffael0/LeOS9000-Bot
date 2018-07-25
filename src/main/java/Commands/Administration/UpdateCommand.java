@@ -16,7 +16,7 @@ public class UpdateCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         GlobalChatUtil.sendToAllServers("Attention all users.  The bot will start updating itself shortly. All servers connected to the" +
-                " global chat with be disconnected. Please be patient and we apologise for the inconvenience. If you see that the bot is online again, just reconnect to the global chat using .global connect", "123456789");
+                " global chat with be disconnected. Please be patient and we apologise for the inconvenience. If you see that the bot is online again, just reconnect to the global chat using .global connect", "");
         event.reply("updating... ");
         BotUtil.update();
     }

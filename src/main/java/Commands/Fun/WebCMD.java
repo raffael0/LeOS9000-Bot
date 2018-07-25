@@ -1,5 +1,6 @@
 package Commands.Fun;
 
+import Util.CubingCMDUtil;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.EmbedBuilder;
@@ -21,23 +22,24 @@ public class WebCMD extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(event.getArgs()).ignoreContentType(true).get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        if(CubingCMDUtil.getStatus(event.getGuild().getId()).equals("off")) {
+            Document doc = null;
+            try {
+                doc = Jsoup.connect(event.getArgs()).ignoreContentType(true).get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        String reply = "";
-        EmbedBuilder eb = new EmbedBuilder();
+            String reply = "";
+            EmbedBuilder eb = new EmbedBuilder();
 
-        Elements text = doc.select("p");
-        Elements headlines = doc.select("h1,h2,h3,h4,h5");
+            Elements text = doc.select("p");
+            Elements headlines = doc.select("h1,h2,h3,h4,h5");
 
-        int length = 0;
-        int pos = 0;
+            int length = 0;
+            int pos = 0;
 
-        for (Element e : text) {
+            for (Element e : text) {
                 reply += e.text() + "\n\n";
                 length += reply.length();
 
@@ -51,8 +53,9 @@ public class WebCMD extends Command {
                     length = 0;
                     reply = "";
                 }
-        }
+            }
 
-        event.reply(eb.build());
+            event.reply(eb.build());
+        }
     }
 }

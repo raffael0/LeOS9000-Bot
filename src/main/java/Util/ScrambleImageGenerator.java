@@ -1,5 +1,6 @@
 package Util;
 
+import Commands.Administration.CubingCMD;
 import Core.Main;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.menu.Slideshow;
@@ -81,6 +82,7 @@ public class ScrambleImageGenerator {
                     .setParameter("cc","black")
                     .setParameter("bg", "black")
                     .setParameter("stage", subset)
+                    .setParameter("sch","wrgyob")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+",""))
                     .build();
         } catch (URISyntaxException e) {
@@ -101,6 +103,7 @@ public class ScrambleImageGenerator {
                     .setParameter("cc","black")
                     .setParameter("bg", "black")
                     .setParameter("stage", subset)
+                    .setParameter("sch","wrgyob")
                     .setParameter("alg", event.getArgs().replace('`', '\'').replaceAll("\\s+","")+"x2y'")
                     .build();
         } catch (URISyntaxException e) {

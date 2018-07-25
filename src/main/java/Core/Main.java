@@ -41,7 +41,7 @@ public class Main {
 
         cbuilder.addCommands(new GameCommand(), new PrefixCommand(), new RebootCommand(), new UpdateCommand(), new GlobalChatCMD(), new FeedbackCommand(), new GithubCMD(), new InviteCMD(),
                 new WatchingCommand(), new WebCMD(), new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new Scramble4CMD(), new Scramble5CMD(), new Scramble6CMD(), new Scramble7CMD(),
-                new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(), new ImageCMD());
+                new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(), new ImageCMD(), new CubingCMD());
 
         CommandClient client = cbuilder.build();
 
@@ -65,6 +65,10 @@ public class Main {
             for(int i = 0; i<getJDA().getGuilds().size(); i++){
                 servers += 1;
                 users += getJDA().getGuilds().get(i).getMembers().size();
+            }
+
+            for(int i = 0; i<getJDA().getGuilds().size(); i++){
+                System.out.println(getJDA().getGuilds().get(i).getName());
             }
 
             getJDA().getPresence().setGame(Game.watching(servers + " servers and " + users + " users"));
