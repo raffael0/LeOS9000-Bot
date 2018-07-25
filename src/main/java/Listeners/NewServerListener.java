@@ -16,6 +16,6 @@ public class NewServerListener extends ListenerAdapter {
     @Override
     public void onGuildLeave(GuildLeaveEvent event){
         CubingCMDUtil.setFalse(event.getGuild().getId());
-        event.getJDA().getTextChannelById(BotUtil.getStatus()).sendMessage("just left server `" + event.getGuild().getName() + "` (" + event.getGuild().getId() + "), which has" + event.getGuild().getMembers().size() + " members").queue();
+        event.getJDA().getTextChannelById(BotUtil.getStatus()).sendMessage("just left server `" + event.getGuild().getName() + "` (" + event.getGuild().getId() + "), which has " + event.getGuild().getMembers().size() + " members").queue();
     }
 }
