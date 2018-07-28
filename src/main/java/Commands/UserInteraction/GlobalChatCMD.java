@@ -16,7 +16,7 @@ public class GlobalChatCMD extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
-        if(CubingCMDUtil.getStatus(event.getGuild().getId()).equals("off")) {
+        if(CubingCMDUtil.getStatus(event.getGuild().getId()).equals("off") && event.getChannel().getName().equals("global")) {
             if (event.getGuild().getTextChannelsByName("global", true).isEmpty()) {
                 event.reply("Error, your server needs a text channel named \"global\" to connect to the global chat");
             } else {
