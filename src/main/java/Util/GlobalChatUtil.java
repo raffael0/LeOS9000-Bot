@@ -69,7 +69,7 @@ public class GlobalChatUtil {
 
     public static String getServerName(String id){
         JSONObject obj = getJSON();
-        return obj.get(id).toString().replace("@everyone","@\u200B\u200Beveryone").replace("@here","@\u200B\u200Bhere");
+        return obj.get(id).toString().replaceAll("@everyone","@\u200B\u200Beveryone").replaceAll("@here","@\u200B\u200Bhere");
     }
 
     private static JSONObject getJSON(){
