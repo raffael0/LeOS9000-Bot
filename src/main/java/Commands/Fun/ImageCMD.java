@@ -17,7 +17,7 @@ import java.io.IOException;
 public class ImageCMD extends Command {
     public ImageCMD(){
         this.name="im";
-        this.aliases= new String[]{"image"};
+        this.aliases= new String[]{"image", "images", "getimages", "gi"};
         this.help="gets all images from a website";
         this.arguments="<url>";
     }
