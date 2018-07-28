@@ -65,6 +65,8 @@ public class GlobalChatCMD extends Command {
                     event.reply("Error, invalid arguments given");
                 }
             }
+        } if(!event.getChannel().getName().equals("global")){
+            event.reply("Error, you need to use this command in the #global channel!");
         }
     }
 }
