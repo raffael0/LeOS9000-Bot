@@ -26,8 +26,12 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.core.entities.User;
 
 import javax.security.auth.login.LoginException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     static String token = BotUtil.getToken();
@@ -61,10 +65,17 @@ public class Main {
 
             int servers = 0;
             int users = 0;
+            List<User> members = new ArrayList<>();
 
             for(int i = 0; i<getJDA().getGuilds().size(); i++){
-                servers += 1;
-                users += getJDA().getGuilds().get(i).getMembers().size();
+                for(int j = 0; j<getJDA().getGuilds().get(i).getMembers().size(); j++){
+                    if(!members.contains(getJDA().getGuilds().get(i).getMembers().get(j).getUser())){
+                        users++;
+                        members.add(getJDA().getGuilds().get(i).getMembers().get(j).getUser());
+                        System.out.println("Added " + getJDA().getGuilds().get(i).getMembers().get(j).getUser().getName() + " to the list");
+                    }
+                }
+                servers++;
             }
 
             for(int i = 0; i<getJDA().getGuilds().size(); i++){
