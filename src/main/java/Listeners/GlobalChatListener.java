@@ -15,10 +15,17 @@ public class GlobalChatListener extends ListenerAdapter {
 
             for (int i = 0; i < ids.length; i++) {
                 if (!event.getMessage().getAttachments().isEmpty() && !ids[i].equals(event.getGuild().getId())) {
+                    String content;
+
+                    if(!event.getMessage().getContentStripped().isEmpty()) {
+                         content = "```" + event.getMessage().getContentStripped() + "```\n";
+                    } else{
+                        content = "";
+                    }
                         if (!ids[i].equals(event.getGuild().getId())) {
                             event.getJDA().getGuildById(ids[i]).getTextChannelsByName("global", true).get(0).sendMessage(
                                     event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
-                                            GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): ```" + event.getMessage().getContentStripped() + "```\n" + event.getMessage().getAttachments().get(0).getUrl()
+                                            GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): " + content + event.getMessage().getAttachments().get(0).getUrl()
                             ).queue();
                         }
                 } else if (!ids[i].equals(event.getGuild().getId())) {
