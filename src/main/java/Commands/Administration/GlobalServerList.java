@@ -20,7 +20,7 @@ public class GlobalServerList extends Command {
         String[] ids = GlobalChatUtil.getIdArray();
 
         for(int i = 0; i<ids.length; i++){
-            content += ids[i] + " -  " + event.getJDA().getGuildById(ids[i]).getName() + "\n";
+            content += ids[i] + "   -   " + event.getJDA().getGuildById(ids[i]).getName() + "\n";
         }
 
         eb.setDescription(content);

@@ -33,9 +33,13 @@ public class GlobalChatUtil {
         sendToAllServers("```\"" + name + "\" (" + id + ") just joined the global chat```", id);
     }
 
-    public static void removeServer(String id){
+    public static void removeServer(String id, boolean kick){
         numberOfServers--;
-        sendToAllServers("```\"" + getServerName(id) + "\" (" + id + ") just left the global chat```", id);
+        if(!kick) {
+            sendToAllServers("```\"" + getServerName(id) + "\" (" + id + ") just left the global chat```", id);
+        } else{
+            sendToAllServers("```\"" + getServerName(id) + "\" (" + id + ") was kicked from the global chat```", id);
+        }
         removeFromJSON(id);
     }
 

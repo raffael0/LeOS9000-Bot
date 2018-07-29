@@ -21,7 +21,7 @@ public class GlobalChatCMD extends Command {
                 event.reply("Error, your server needs a text channel named \"global\" to connect to the global chat");
             } else {
                 if (event.getArgs().equals("disconnect")) {
-                    GlobalChatUtil.removeServer(event.getGuild().getId());
+                    GlobalChatUtil.removeServer(event.getGuild().getId(), false);
                     event.reply("disconnected from global chat");
                 } else if (event.getArgs().equals("connect")) {
                     if (GlobalChatUtil.isConnected(event.getGuild().getId())) {

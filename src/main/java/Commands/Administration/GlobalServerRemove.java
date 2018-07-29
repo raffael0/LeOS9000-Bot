@@ -14,8 +14,7 @@ public class GlobalServerRemove extends Command {
     @Override
     protected void execute(CommandEvent event) {
         if(GlobalChatUtil.isConnected(event.getArgs())) {
-            GlobalChatUtil.removeServer(event.getArgs());
-            GlobalChatUtil.sendToAllServers(event.getJDA().getGuildById(event.getArgs()).getName() + " (" + event.getArgs() + ") was just kicked out of the global chat!","");
+            GlobalChatUtil.removeServer(event.getArgs(), true);
             event.getJDA().getGuildById(event.getArgs()).getTextChannelsByName("global", true).get(0).sendMessage("You were just kicked from the global chat!").queue();
         } else
             event.reply("Error, that server isn't connected!");
