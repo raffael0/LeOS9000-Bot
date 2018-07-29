@@ -25,7 +25,7 @@ public class GlobalChatListener extends ListenerAdapter {
                         if (!ids[i].equals(event.getGuild().getId())) {
                             event.getJDA().getGuildById(ids[i]).getTextChannelsByName("global", true).get(0).sendMessage(
                                     event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
-                                            GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): " + content + event.getMessage().getAttachments().get(0)
+                                            GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): " + content + event.getMessage().getAttachments().get(0).getUrl()
                             ).queue();
                         }
                 } else if (!ids[i].equals(event.getGuild().getId())) {
