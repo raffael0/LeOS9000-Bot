@@ -1,4 +1,4 @@
-package Commands.Administration;
+package Commands.Administration.BotOwner;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;

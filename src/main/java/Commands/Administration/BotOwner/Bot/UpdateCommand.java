@@ -1,4 +1,4 @@
-package Commands.Administration;
+package Commands.Administration.BotOwner.Bot;
 
 import Util.BotUtil;
 import Util.GlobalChatUtil;

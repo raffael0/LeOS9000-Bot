@@ -1,4 +1,4 @@
-package Commands.Administration;
+package Commands.Administration.BotOwner;
 
 import Core.Main;
 import Util.CubingCMDUtil;

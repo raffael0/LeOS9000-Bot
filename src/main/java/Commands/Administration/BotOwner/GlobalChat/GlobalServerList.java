@@ -1,4 +1,4 @@
-package Commands.Administration;
+package Commands.Administration.BotOwner.GlobalChat;
 
 import Util.GlobalChatUtil;
 import com.jagrosh.jdautilities.command.Command;

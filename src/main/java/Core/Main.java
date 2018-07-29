@@ -1,7 +1,11 @@
 
 package Core;
 
-import Commands.Administration.*;
+import Commands.Administration.BotOwner.*;
+import Commands.Administration.BotOwner.Bot.*;
+import Commands.Administration.BotOwner.GlobalChat.GlobalServerList;
+import Commands.Administration.BotOwner.GlobalChat.GlobalServerRemove;
+import Commands.Administration.ServerOwner.CubingCMD;
 import Commands.Cubing.ScrambleCMD;
 import Commands.Cubing.Subsets.CFOP.CrossCMD;
 import Commands.Cubing.Subsets.CFOP.F2LCMD;
@@ -26,7 +30,6 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.User;
 
 import javax.security.auth.login.LoginException;

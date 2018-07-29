@@ -1,4 +1,4 @@
-package Commands.Administration;
+package Commands.Administration.BotOwner.GlobalChat;
 
 import Util.GlobalChatUtil;
 import com.jagrosh.jdautilities.command.Command;
@@ -15,7 +15,7 @@ public class GlobalServerRemove extends Command {
     protected void execute(CommandEvent event) {
         if(GlobalChatUtil.isConnected(event.getArgs())) {
             GlobalChatUtil.removeServer(event.getArgs(), true);
-            event.getJDA().getGuildById(event.getArgs()).getTextChannelsByName("global", true).get(0).sendMessage("You were just kicked from the global chat!").queue();
+            event.getJDA().getGuildById(event.getArgs()).getTextChannelsByName("global", true).get(0).sendMessage("You were kicked from the global chat!").queue();
         } else
             event.reply("Error, that server isn't connected!");
     }

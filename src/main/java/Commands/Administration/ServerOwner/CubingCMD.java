@@ -1,4 +1,4 @@
-package Commands.Administration;
+package Commands.Administration.ServerOwner;
 
 import Util.CubingCMDUtil;
 import com.jagrosh.jdautilities.command.Command;

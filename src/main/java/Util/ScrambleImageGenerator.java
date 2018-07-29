@@ -1,6 +1,5 @@
 package Util;
 
-import Commands.Administration.CubingCMD;
 import Core.Main;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.menu.Slideshow;
