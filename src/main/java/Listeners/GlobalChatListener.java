@@ -17,17 +17,17 @@ public class GlobalChatListener extends ListenerAdapter {
                 if (!event.getMessage().getAttachments().isEmpty() && !ids[i].equals(event.getGuild().getId())) {
                     String content;
 
-                    if(!event.getMessage().getContentStripped().isEmpty()) {
-                         content = "```" + event.getMessage().getContentStripped() + "```\n";
-                    } else{
+                    if (!event.getMessage().getContentStripped().isEmpty()) {
+                        content = "```" + event.getMessage().getContentStripped() + "```\n";
+                    } else {
                         content = "";
                     }
-                        if (!ids[i].equals(event.getGuild().getId())) {
-                            event.getJDA().getGuildById(ids[i]).getTextChannelsByName("global", true).get(0).sendMessage(
-                                    event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
-                                            GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): " + content + event.getMessage().getAttachments().get(0).getUrl()
-                            ).queue();
-                        }
+                    if (!ids[i].equals(event.getGuild().getId())) {
+                        event.getJDA().getGuildById(ids[i]).getTextChannelsByName("global", true).get(0).sendMessage(
+                                event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
+                                        GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): " + content + event.getMessage().getAttachments().get(0).getUrl()
+                        ).queue();
+                    }
                 } else if (!ids[i].equals(event.getGuild().getId())) {
                     event.getJDA().getGuildById(ids[i]).getTextChannelsByName("global", true).get(0).sendMessage(
                             event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
@@ -37,28 +37,27 @@ public class GlobalChatListener extends ListenerAdapter {
                 }
             }
 
+            String content;
+
+            if (!event.getMessage().getContentStripped().isEmpty()) {
+                content = "```" + event.getMessage().getContentStripped() + "```\n";
+            } else {
+                content = "";
+            }
+
             if (!event.getMessage().getAttachments().isEmpty()) {
-                String content;
-
-                if(!event.getMessage().getContentStripped().isEmpty()) {
-                    content = "```" + event.getMessage().getContentStripped() + "```\n";
-                } else{
-                    content = "";
-                }
-
-                if (!event.getMessage().getAttachments().isEmpty()) {
-                    event.getJDA().getGuildById(BotUtil.getServer()).getTextChannelsByName("global-log", true).get(0).sendMessage(
-                            event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
-                                    GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): " + content + event.getMessage().getAttachments().get(0).getUrl()
-                    ).queue();
-                } else {
-                    event.getJDA().getGuildById(BotUtil.getServer()).getTextChannelsByName("global-log", true).get(0).sendMessage(
-                            event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
-                                    GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): \n" + "```"
-                                    + event.getMessage().getContentStripped() + "```"
-                    ).queue();
-                }
+                event.getJDA().getGuildById(BotUtil.getServer()).getTextChannelsByName("global-log", true).get(0).sendMessage(
+                        event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
+                                GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): " + content + event.getMessage().getAttachments().get(0).getUrl()
+                ).queue();
+            } else {
+                event.getJDA().getGuildById(BotUtil.getServer()).getTextChannelsByName("global-log", true).get(0).sendMessage(
+                        event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " in \"" +
+                                GlobalChatUtil.getServerName(event.getGuild().getId()) + "\" (" + event.getGuild().getId() + "): \n" + "```"
+                                + event.getMessage().getContentStripped() + "```"
+                ).queue();
             }
         }
+
     }
 }
