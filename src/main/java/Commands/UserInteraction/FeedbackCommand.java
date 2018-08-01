@@ -10,6 +10,7 @@ public class FeedbackCommand extends Command {
         this.name = "feedback";
         this.help = "use this command to give feedback";
         this.arguments = "<feedback>";
+        this.cooldown=7200;
     }
 
     @Override

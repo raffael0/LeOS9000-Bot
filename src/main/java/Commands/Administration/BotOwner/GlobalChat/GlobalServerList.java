@@ -9,6 +9,7 @@ public class GlobalServerList extends Command {
     public GlobalServerList(){
         this.name="gsl";
         this.ownerCommand=true;
+        this.hidden=true;
     }
 
     @Override

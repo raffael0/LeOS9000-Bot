@@ -1,10 +1,13 @@
 
 package Core;
 
-import Commands.Administration.BotOwner.*;
 import Commands.Administration.BotOwner.Bot.*;
+import Commands.Administration.BotOwner.GlobalChat.BannedServers;
 import Commands.Administration.BotOwner.GlobalChat.GlobalServerList;
 import Commands.Administration.BotOwner.GlobalChat.GlobalServerRemove;
+import Commands.Administration.BotOwner.InitCubingModeCMD;
+import Commands.Administration.BotOwner.ReplyToFeedbackCMD;
+import Commands.Cubing.WCA.*;
 import Commands.Administration.ServerOwner.CubingCMD;
 import Commands.Cubing.ScrambleCMD;
 import Commands.Cubing.Subsets.CFOP.CrossCMD;
@@ -12,13 +15,13 @@ import Commands.Cubing.Subsets.CFOP.F2LCMD;
 import Commands.Cubing.Subsets.CFOP.OLLCMD;
 import Commands.Cubing.Subsets.Roux.CMLLCMD;
 import Commands.Cubing.Subsets.Roux.F2BCMD;
-import Commands.Cubing.WCA.*;
 import Commands.Fun.ImageCMD;
 import Commands.Fun.WebCMD;
 import Commands.Information.GithubCMD;
 import Commands.Information.InviteCMD;
 import Commands.UserInteraction.FeedbackCommand;
-import Commands.UserInteraction.GlobalChatCMD;
+import Commands.UserInteraction.GlobalChat.GlobalChatCMD;
+import Commands.UserInteraction.GlobalChat.GlobalChatKick;
 import Listeners.GlobalChatListener;
 import Listeners.NewServerListener;
 import Util.BotUtil;
@@ -49,7 +52,7 @@ public class Main {
         cbuilder.addCommands(new GameCommand(), new PrefixCommand(), new RebootCommand(), new UpdateCommand(), new GlobalChatCMD(), new FeedbackCommand(), new GithubCMD(), new InviteCMD(),
                 new WatchingCommand(), new WebCMD(), new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new Scramble4CMD(), new Scramble5CMD(), new Scramble6CMD(), new Scramble7CMD(),
                 new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(), new ImageCMD(), new CubingCMD(), new ReplyToFeedbackCMD(), new InitCubingModeCMD(), new GlobalServerList(),
-                new GlobalServerRemove());
+                new GlobalServerRemove(), new GlobalChatKick(), new BannedServers());
 
         CommandClient client = cbuilder.build();
 
@@ -71,19 +74,23 @@ public class Main {
             int users = 0;
             List<User> members = new ArrayList<>();
 
+            System.out.println("=== Users ===");
+
             for(int i = 0; i<getJDA().getGuilds().size(); i++){
                 for(int j = 0; j<getJDA().getGuilds().get(i).getMembers().size(); j++){
                     if(!members.contains(getJDA().getGuilds().get(i).getMembers().get(j).getUser())){
                         users++;
                         members.add(getJDA().getGuilds().get(i).getMembers().get(j).getUser());
-                        System.out.println("Added " + getJDA().getGuilds().get(i).getMembers().get(j).getUser().getName() + " to the list");
+                        System.out.println("User:  " + getJDA().getGuilds().get(i).getMembers().get(j).getUser().getName());
                     }
                 }
                 servers++;
             }
 
+            System.out.println("=== Servers ===");
+
             for(int i = 0; i<getJDA().getGuilds().size(); i++){
-                System.out.println(getJDA().getGuilds().get(i).getName());
+                System.out.println("Server: " + getJDA().getGuilds().get(i).getName());
             }
 
             getJDA().getPresence().setGame(Game.watching(servers + " servers and " + users + " users"));

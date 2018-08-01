@@ -1,6 +1,5 @@
 package Util;
 import net.dv8tion.jda.core.entities.Message;
-import org.json.JSONWriter;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -59,6 +58,19 @@ public class BotUtil {
 
     public static String getPrefix(){
         return (String) getJSON().get("Prefix");
+    }
+
+    public static void set(String key, String value){
+        JSONObject obj = getJSON();
+        obj.put(key, value);
+        try {
+            FileWriter fw = new FileWriter("src/main/resources/config.json");
+            fw.write(obj.toString());
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void setPrefix(String value){

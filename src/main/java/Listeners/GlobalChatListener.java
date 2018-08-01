@@ -2,7 +2,6 @@ package Listeners;
 
 import Util.BotUtil;
 import Util.GlobalChatUtil;
-import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -10,7 +9,8 @@ public class GlobalChatListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (!event.getAuthor().isBot() && GlobalChatUtil.isConnected(event.getGuild().getId()) && event.getChannel().getName().toLowerCase().equals("global")
-                && !event.getMessage().getContentStripped().equals(BotUtil.getPrefix() + "global disconnect") && !event.getMessage().getContentStripped().equals(BotUtil.getPrefix() + "global")) {
+                && !event.getMessage().getContentStripped().equals(BotUtil.getPrefix() + "global disconnect") && !event.getMessage().getContentStripped().equals(BotUtil.getPrefix() + "global")
+                && !event.getMessage().getContentStripped().startsWith(BotUtil.getPrefix() + "vk")) {
             String[] ids = GlobalChatUtil.getIdArray();
 
             for (int i = 0; i < ids.length; i++) {

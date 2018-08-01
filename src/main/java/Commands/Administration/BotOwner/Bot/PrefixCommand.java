@@ -4,8 +4,6 @@ import Util.BotUtil;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
-import java.io.IOException;
-
 public class PrefixCommand extends Command {
     public PrefixCommand(){
         this.name="prefix";

@@ -3,12 +3,12 @@ package Commands.Administration.BotOwner.GlobalChat;
 import Util.GlobalChatUtil;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import jdk.nashorn.internal.objects.Global;
 
 public class GlobalServerRemove extends Command {
     public GlobalServerRemove(){
         this.name="gsrm";
         this.ownerCommand=true;
+        this.hidden=true;
     }
 
     @Override

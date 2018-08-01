@@ -12,6 +12,7 @@ public class InitCubingModeCMD extends Command {
     public InitCubingModeCMD(){
         this.name="initcubing";
         this.ownerCommand=true;
+        this.hidden=true;
     }
 
     @Override
