@@ -30,6 +30,7 @@ public class GlobalChatUtil {
         numberOfServers--;
         if(!kick) {
             sendToAllServers("```\"" + getServerName(id) + "\" (" + id + ") just left the global chat```", id);
+            removeFromJSON(id);
         } else{
             sendToAllServers("```\"" + getServerName(id) + "\" (" + id + ") was kicked from the global chat```", id);
             removeFromJSON(id);
