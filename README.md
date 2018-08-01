@@ -16,8 +16,7 @@ After that, you can just write messages into the #global channel and the bot wil
 ```-global```
 If you wish to disconnect from the global chat, use 
 ```-global disconnect```
-Note that the bot disconnects all servers from the global chat when it updates itself!
-
+If a server is annoying, use the ```-vk``` command to get a list of all servers and then ```-vk [id of the server that you want to kick]```. This will start a votekick. If other agree with you, the server will get kicked from the global chat.
 ## The .image and the .web commands
 The ```-image``` command gives you an interactive menu to browse all the images on a webpage!
 ![Imgur](https://i.imgur.com/uSSiAka.png)                                                             
