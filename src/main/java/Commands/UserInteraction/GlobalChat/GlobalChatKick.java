@@ -23,7 +23,7 @@ public class GlobalChatKick extends Command {
             EmbedBuilder eb = new EmbedBuilder();
             String[] ids = u.getIdArray();
             for(int i = 0; i<ids.length; i++){
-                eb.addField(u.getServerName(ids[i]), "id :" + ids[i] + "\nvotes: " + u.getVotes(ids[i]), false);
+                eb.addField(u.getServerName(ids[i]), "id: " + ids[i] + "\nvotes: " + u.getVotes(ids[i]), false);
             }
             event.reply(eb.build());
         } else if(event.getArgs().equals(event.getGuild().getId())){
