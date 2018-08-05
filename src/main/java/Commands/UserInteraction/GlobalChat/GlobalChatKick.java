@@ -20,7 +20,7 @@ public class GlobalChatKick extends Command {
         String[] ids = u.getIdArray();
         int choice = (event.getArgs().isEmpty() ? -1 : Integer.parseInt(event.getArgs()));
 
-        if(event.getArgs().isEmpty() || choice == -1){
+        if(choice == -1){
             EmbedBuilder eb = new EmbedBuilder();
             for(int i = 0; i<ids.length; i++){
                 eb.addField("[" + i + "] " + u.getServerName(ids[i]), "id: " + ids[i] + "\nvotes: " + u.getVotes(ids[i]), false);
@@ -28,7 +28,7 @@ public class GlobalChatKick extends Command {
             event.reply(eb.build());
         } else if(ids[choice].equals(event.getGuild().getId())){
             event.reply("Error, you can't vote to kick your own server!");
-        } else if(choice < u.getNumberOfServers() && !ids[choice].equals(event.getGuild().getId())) {
+        } else if(choice < ids.length && !ids[choice].equals(event.getGuild().getId())) {
             if (event.getJDA().getGuildById(ids[choice]).isAvailable()) {
                 if (!u.alreadyVoted(ids[choice], event.getAuthor().getId())) {
                     u.addVote(ids[choice], event.getAuthor().getId());
@@ -47,7 +47,7 @@ public class GlobalChatKick extends Command {
                 }
             } else
                 event.reply("Error, that guild does not exist!");
-        } else if(choice > u.getNumberOfServers()){
+        } else if(choice > ids.length){
             event.reply("Error, invalid choice");
         }
     }
