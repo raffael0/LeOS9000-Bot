@@ -144,14 +144,11 @@ public class GlobalChatUtil {
 
     public static int getVotesNeeded(){
         if(getNumberOfServers() <= 4){
-            return 2;
+            return 5;
         } else if(getNumberOfServers() > 4 && getNumberOfServers() < 8){
-            return 3;
+            return 8;
         } else{
-            if(getNumberOfServers()%2==0){
-                return getNumberOfServers()%4;
-            } else
-                return getNumberOfServers()+1%4;
+            return getNumberOfServers();
         }
     }
 

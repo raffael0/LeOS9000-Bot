@@ -27,13 +27,13 @@ public class GlobalChatKick extends Command {
             }
             event.reply(eb.build());
         } else if(event.getArgs().equals(event.getGuild().getId())){
-            event.reply("Error, you can't vote to kick yourself!");
+            event.reply("Error, you can't vote to kick your own server!");
         } else if(id != null && !event.getArgs().equals(event.getGuild().getId())) {
             if (event.getJDA().getGuildById(id).isAvailable()) {
-                if (!u.alreadyVoted(id, event.getGuild().getId())) {
+                if (!u.alreadyVoted(id, event.getAuthor().getId())) {
                     u.addVote(id, event.getGuild().getId());
                      if((u.getVotesNeeded() - u.getVotes(id)) >= 0) {
-                        u.sendToAllServers("```" + event.getGuild().getName() + " (" + event.getGuild().getId() + ") voted to kick "
+                        u.sendToAllServers("```" + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getGuild().getId() + ") voted to kick "
                                 + event.getJDA().getGuildById(id).getName() + ". " + (u.getVotesNeeded() - u.getVotes(id)) + " more vote(s) are needed to kick the server```", event.getGuild().getId());
                     }
                     event.reply("```you voted to kick " + u.getServerName(id) + " (" + id + "). " + (u.getVotesNeeded() - u.getVotes(id)) + " more vote(s) needed to kick```");
