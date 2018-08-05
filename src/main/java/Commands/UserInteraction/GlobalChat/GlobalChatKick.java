@@ -28,8 +28,6 @@ public class GlobalChatKick extends Command {
             event.reply(eb.build());
         } else if(ids[choice].equals(event.getGuild().getId())){
             event.reply("Error, you can't vote to kick your own server!");
-        } else if(choice > u.getNumberOfServers()){
-            event.reply("Error, invalid choice");
         } else if(choice < u.getNumberOfServers() && !ids[choice].equals(event.getGuild().getId())) {
             if (event.getJDA().getGuildById(ids[choice]).isAvailable()) {
                 if (!u.alreadyVoted(ids[choice], event.getAuthor().getId())) {
@@ -49,6 +47,8 @@ public class GlobalChatKick extends Command {
                 }
             } else
                 event.reply("Error, that guild does not exist!");
+        } else if(choice > u.getNumberOfServers()){
+            event.reply("Error, invalid choice");
         }
     }
 }
