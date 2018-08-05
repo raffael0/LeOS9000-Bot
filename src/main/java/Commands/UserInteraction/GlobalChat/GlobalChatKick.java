@@ -17,33 +17,35 @@ public class GlobalChatKick extends Command {
     protected void execute(CommandEvent event) {
         GlobalChatUtil u = new GlobalChatUtil();
         String user = event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator();
-        String id = (event.getArgs().isEmpty() ? null : event.getArgs());
+        String[] ids = u.getIdArray();
+        int choice = Integer.parseInt(event.getArgs());
 
-        if(id == null){
+        if(event.getArgs().isEmpty()){
             EmbedBuilder eb = new EmbedBuilder();
-            String[] ids = u.getIdArray();
             for(int i = 0; i<ids.length; i++){
-                eb.addField(u.getServerName(ids[i]), "id: " + ids[i] + "\nvotes: " + u.getVotes(ids[i]), false);
+                eb.addField("[" + i + "] " + u.getServerName(ids[i]), "id: " + ids[i] + "\nvotes: " + u.getVotes(ids[i]), false);
             }
             event.reply(eb.build());
-        } else if(event.getArgs().equals(event.getGuild().getId())){
+        } else if(ids[choice].equals(event.getGuild().getId())){
             event.reply("Error, you can't vote to kick your own server!");
-        } else if(id != null && !event.getArgs().equals(event.getGuild().getId())) {
-            if (event.getJDA().getGuildById(id).isAvailable()) {
-                if (!u.alreadyVoted(id, event.getAuthor().getId())) {
-                    u.addVote(id, event.getAuthor().getId());
-                     if((u.getVotesNeeded() - u.getVotes(id)) >= 0) {
+        } else if(choice > u.getNumberOfServers()){
+            event.reply("Error, invalid choice");
+        } else if(choice < u.getNumberOfServers() && !event.getArgs().equals(event.getGuild().getId())) {
+            if (event.getJDA().getGuildById(ids[choice]).isAvailable()) {
+                if (!u.alreadyVoted(ids[choice], event.getAuthor().getId())) {
+                    u.addVote(ids[choice], event.getAuthor().getId());
+                     if((u.getVotesNeeded() - u.getVotes(ids[choice])) >= 0) {
                         u.sendToAllServers("```" + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getGuild().getId() + ") voted to kick "
-                                + event.getJDA().getGuildById(id).getName() + ". " + (u.getVotesNeeded() - u.getVotes(id)) + " more vote(s) are needed to kick the server```", event.getGuild().getId());
+                                + event.getJDA().getGuildById(ids[choice]).getName() + ". " + (u.getVotesNeeded() - u.getVotes(ids[choice])) + " more vote(s) are needed to kick the server```", event.getGuild().getId());
                     }
-                    event.reply("```you voted to kick " + u.getServerName(id) + " (" + id + "). " + (u.getVotesNeeded() - u.getVotes(id)) + " more vote(s) needed to kick```");
+                    event.reply("```you voted to kick " + u.getServerName(ids[choice]) + " (" + ids[choice] + "). " + (u.getVotesNeeded() - u.getVotes(ids[choice])) + " more vote(s) needed to kick```");
                 } else {
                     event.reply("Error, you already voted!");
                 }
 
-                if ((u.getVotesNeeded() - u.getVotes(id)) == 0) {
-                    u.removeServer(id, true);
-                    event.getJDA().getGuildById(id).getTextChannelsByName("global", true).get(0).sendMessage("```you were kicked from the global chat and have to wait 10 minutes before reconnecting again!```").queue();
+                if ((u.getVotesNeeded() - u.getVotes(ids[choice])) == 0) {
+                    u.removeServer(ids[choice], true);
+                    event.getJDA().getGuildById(ids[choice]).getTextChannelsByName("global", true).get(0).sendMessage("```you were kicked from the global chat and have to wait 10 minutes before reconnecting again!```").queue();
                 }
             } else
                 event.reply("Error, that guild does not exist!");
