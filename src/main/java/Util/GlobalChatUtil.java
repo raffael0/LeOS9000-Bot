@@ -155,7 +155,7 @@ public class GlobalChatUtil {
     public static boolean alreadyVoted(String serverToVoteOn, String id){
         JSONObject obj = (JSONObject) getJSON(file).get(serverToVoteOn);
         JSONObject jsonObject = (JSONObject) obj.get("votedOn");
-        return (jsonObject.containsKey(id) ? true : false);
+        return jsonObject.containsKey(id);
     }
 
     public static boolean banned(String id){

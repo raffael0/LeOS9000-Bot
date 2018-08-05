@@ -31,7 +31,7 @@ public class GlobalChatKick extends Command {
         } else if(id != null && !event.getArgs().equals(event.getGuild().getId())) {
             if (event.getJDA().getGuildById(id).isAvailable()) {
                 if (!u.alreadyVoted(id, event.getAuthor().getId())) {
-                    u.addVote(id, event.getGuild().getId());
+                    u.addVote(id, event.getAuthor().getId());
                      if((u.getVotesNeeded() - u.getVotes(id)) >= 0) {
                         u.sendToAllServers("```" + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getGuild().getId() + ") voted to kick "
                                 + event.getJDA().getGuildById(id).getName() + ". " + (u.getVotesNeeded() - u.getVotes(id)) + " more vote(s) are needed to kick the server```", event.getGuild().getId());
