@@ -5,6 +5,8 @@ import Commands.Administration.BotOwner.Bot.*;
 import Commands.Administration.BotOwner.GlobalChat.*;
 import Commands.Administration.BotOwner.InitCubingModeCMD;
 import Commands.Administration.BotOwner.ReplyToFeedbackCMD;
+import Commands.Cubing.InteractiveCube;
+import Commands.Cubing.MoveCMD;
 import Commands.Cubing.WCA.*;
 import Commands.Administration.ServerOwner.CubingCMD;
 import Commands.Cubing.ScrambleCMD;
@@ -50,7 +52,7 @@ public class Main {
         cbuilder.addCommands(new GameCommand(), new PrefixCommand(), new RebootCommand(), new UpdateCommand(), new GlobalChatCMD(), new FeedbackCommand(), new GithubCMD(), new InviteCMD(),
                 new WatchingCommand(), new WebCMD(), new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new Scramble4CMD(), new Scramble5CMD(), new Scramble6CMD(), new Scramble7CMD(),
                 new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(), new ImageCMD(), new CubingCMD(), new ReplyToFeedbackCMD(), new InitCubingModeCMD(), new GlobalServerList(),
-                new GlobalServerRemove(), new GlobalChatKick(), new BannedServers(), new ShutdownCommand(), new UnbanAll(), new DisconnectAll(), new GlobalServer());
+                new GlobalServerRemove(), new GlobalChatKick(), new BannedServers(), new ShutdownCommand(), new UnbanAll(), new DisconnectAll(), new GlobalServer(), new InteractiveCube(), new MoveCMD());
 
         CommandClient client = cbuilder.build();
 
