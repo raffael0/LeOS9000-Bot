@@ -18,9 +18,9 @@ public class GlobalChatKick extends Command {
         GlobalChatUtil u = new GlobalChatUtil();
         String user = event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator();
         String[] ids = u.getIdArray();
-        int choice = Integer.parseInt(event.getArgs());
+        int choice = (event.getArgs().isEmpty() ? -1 : Integer.parseInt(event.getArgs()));
 
-        if(event.getArgs().isEmpty()){
+        if(event.getArgs().isEmpty() || choice == -1){
             EmbedBuilder eb = new EmbedBuilder();
             for(int i = 0; i<ids.length; i++){
                 eb.addField("[" + i + "] " + u.getServerName(ids[i]), "id: " + ids[i] + "\nvotes: " + u.getVotes(ids[i]), false);

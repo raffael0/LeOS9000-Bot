@@ -52,10 +52,18 @@ public class CubeUtil {
     }
 
     public static void removeMessage(CommandEvent event){
+        int count = 0;
         for(Message message : event.getChannel().getIterableHistory().cache(false)){
-            if(message.getContentRaw().contains(event.getAuthor().getName()) && message.getAuthor().isBot()){
-                message.delete().queue();
+            if(count < 50) {
+                if (message.getContentRaw().contains(event.getAuthor().getName()) && message.getAuthor().isBot()) {
+                    message.delete().queue();
+                    break;
+                }
+                count++;
+            } else {
+                break;
             }
+            System.out.println(count);
         }
     }
 
