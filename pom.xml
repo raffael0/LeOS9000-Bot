@@ -22,7 +22,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Core.Main</mainClass>
+                            <mainClass>core.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
