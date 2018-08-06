@@ -23,8 +23,8 @@ public class CubeCMD extends Command {
 
         if(event.getArgs().equals("help")){
             eb.setTitle("Interactive Cube Commands");
-            eb.setDescription("The following commands can be used to spawn interactive cubes. You can select one using `" + BotUtil.getPrefix() +
-            "select [2-7]`, and then manipulate it using `" + BotUtil.getPrefix() + "move [your moves]`. To reset your cube use `" + BotUtil.getPrefix() + "cube[number] reset`. " +
+            eb.setDescription("The following commands can be used to spawn interactive cubes. Use `" + BotUtil.getPrefix() + "cube[number] start` to spawn a cube. after you have spawned it, you can select it with" +
+                    "`" + BotUtil.getPrefix() + "select [2-7]`, and then manipulate it using `" + BotUtil.getPrefix() + "move [your moves]`. To reset your cube use `" + BotUtil.getPrefix() + "cube[number] reset`. " +
                     "For additional help, please join the support server. You can get an invite using " + BotUtil.getPrefix() + "invite");
             eb.addField("2x2", BotUtil.getPrefix() + "cube2", true);
             eb.addField("3x3", BotUtil.getPrefix() + "cube3", true);
@@ -37,16 +37,19 @@ public class CubeCMD extends Command {
         } else if(event.getArgs().equals("info")){
             eb.setTitle("Your Cubes");
             String[] cubes = u.getCubeArray(event.getAuthor().getId());
-            int pos = 0;
-            for(int i = 0; i<cubes.length; i++){
-                if(!cubes[i].equals("selection")) {
-                    eb.addField(cubes[i] + "x" + cubes[i], u.getUserScramble(event.getAuthor().getId(), cubes[i]), true);
-                } else
-                pos = i;
-            }
-            eb.addField("current selection", u.getUserScramble(event.getAuthor().getId(), cubes[pos]), false);
-            eb.setColor(Color.RED);
-            event.reply(eb.build());
+            if(cubes.length!=0) {
+                int pos = 0;
+                for (int i = 0; i < cubes.length; i++) {
+                    if (!cubes[i].equals("selection")) {
+                        eb.addField(cubes[i] + "x" + cubes[i], u.getUserScramble(event.getAuthor().getId(), cubes[i]), true);
+                    } else
+                        pos = i;
+                }
+                eb.addField("current selection", u.getUserScramble(event.getAuthor().getId(), cubes[pos]), false);
+                eb.setColor(Color.RED);
+                event.reply(eb.build());
+            } else
+                event.reply("Error, you do not have any cubes at the moment!");
         } else
             event.reply("Error, invalid arguments. Try using `" + BotUtil.getPrefix() + "cube info` or " + BotUtil.getPrefix() + "cube help` instead");
 

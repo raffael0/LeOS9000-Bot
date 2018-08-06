@@ -36,6 +36,7 @@ import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.User;
+import util.GlobalChatUtil;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -49,7 +50,6 @@ public class Main {
 
     public static void main(String[] args){
         JDABuilder builder = new JDABuilder(AccountType.BOT).setToken(token).setAutoReconnect(true);
-
         cbuilder = new CommandClientBuilder().setPrefix(BotUtil.getPrefix()).setOwnerId(BotUtil.getOwner());
 
         cbuilder.addCommands(new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new Scramble4CMD(), new Scramble5CMD(), new Scramble6CMD(), new Scramble7CMD(), new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(),
@@ -103,6 +103,8 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        GlobalChatUtil.sendToAllServers("The bot is now back online, you can continue talking!", "");
     }
 
     public static JDA getJDA(){
