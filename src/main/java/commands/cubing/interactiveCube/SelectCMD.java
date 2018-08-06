@@ -8,7 +8,7 @@ public class SelectCMD extends Command {
     public SelectCMD(){
         this.name="select";
         this.help="selects the puzzle that you want to manipulate";
-        this.arguments="<2-7>";
+        this.arguments="<2/3>";
         this.category=new Category("Cubing");
     }
 

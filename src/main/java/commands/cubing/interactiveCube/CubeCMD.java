@@ -24,14 +24,15 @@ public class CubeCMD extends Command {
         if(event.getArgs().equals("help")){
             eb.setTitle("Interactive Cube Commands");
             eb.setDescription("The following commands can be used to spawn interactive cubes. Use `" + BotUtil.getPrefix() + "cube[number] start` to spawn a cube. after you have spawned it, you can select it with" +
-                    "`" + BotUtil.getPrefix() + "select [2-7]`, and then manipulate it using `" + BotUtil.getPrefix() + "move [your moves]`. To reset your cube use `" + BotUtil.getPrefix() + "cube[number] reset`. " +
+                    "`" + BotUtil.getPrefix() + "select [2|3]`, and then manipulate it using `" + BotUtil.getPrefix() + "move [your moves]`. To reset your cube use `" + BotUtil.getPrefix() + "cube[number] reset`. " +
                     "For additional help, please join the support server. You can get an invite using " + BotUtil.getPrefix() + "invite");
             eb.addField("2x2", BotUtil.getPrefix() + "cube2", true);
             eb.addField("3x3", BotUtil.getPrefix() + "cube3", true);
-            eb.addField("4x4", BotUtil.getPrefix() + "cube4", true);
+            eb.addField("Important", "cubes bigger than 3x3 are currently disabled.", true);
+            /*eb.addField("4x4", BotUtil.getPrefix() + "cube4", true);
             eb.addField("5x5", BotUtil.getPrefix() + "cube5", true);
             eb.addField("6x6", BotUtil.getPrefix() + "cube6", true);
-            eb.addField("7x7", BotUtil.getPrefix() + "cube7", true);
+            eb.addField("7x7", BotUtil.getPrefix() + "cube7", true);*/
             eb.setColor(Color.RED);
             event.reply(eb.build());
         } else if(event.getArgs().equals("info")){
