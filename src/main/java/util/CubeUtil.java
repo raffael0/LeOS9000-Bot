@@ -147,7 +147,7 @@ public class CubeUtil {
                         .setParameter("size", "500")
                         .setParameter("cc","black")
                         .setParameter("bg", "black")
-                        .setParameter("pzl", "3")
+                        .setParameter("pzl", size)
                         .setParameter("sch","wrgyob")
                         .setParameter("alg", scramble.replace('`', '\'').replaceAll("\\s+","")+"x2y'")
                         .build();
