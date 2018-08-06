@@ -8,6 +8,9 @@ The LeOS9000 Bot features several commands and focuses on speedcubing. It has a 
 
 [Add the bot to your server](https://discordapp.com/api/oauth2/authorize?client_id=460120329264693258&permissions=121856&scope=bot)
 
+## Interactive Cube
+The bot now features interactive cubing commands. You can use ```-cube[number] start``` to spawn a new cube. The number can range from 2-7. You then have to select the cube using ```-select [number]```. This is needed as you can have cubes of multiple sizes. You can only have one cube of every size. After you have selected your cube, you can manipulate it using ```-move [your moves]```. To reset your cube, you can use ```-cube[number] reset```. If you want to delete your cube completely, you can use ```cube[number] stop```. You can get an overview of the different cubes using ```-cube help```. To get some info about your current cubes, use ```-cube info```.
+
 ## Global Chat
 ![Imgur](https://i.imgur.com/4rQ9v5o.png)                                               
 The global chat connects all servers that the bot is currently on. To use it, you must have a channel named "#global" on your server. You can connect to the global chat using 
