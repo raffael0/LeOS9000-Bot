@@ -37,7 +37,7 @@ public class GlobalChatUtil {
             ban(id);
             new Thread(() -> {
                 try {
-                    TimeUnit.SECONDS.sleep(20);
+                    TimeUnit.MINUTES.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
