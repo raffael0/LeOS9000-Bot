@@ -3,6 +3,8 @@
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/jesus.svg)](http://lunagao.github.io/BlessYourCodeTag/) 
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/allah.svg)](http://lunagao.github.io/BlessYourCodeTag/) 
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/ramen.svg)](http://lunagao.github.io/BlessYourCodeTag/) 
+[![](https://forthebadge.com/images/badges/built-with-wordpress.svg)](https://forthebadge.com)
+[![](https://forthebadge.com/images/badges/gluten-free.svg)](https://forthebadge.com)
 
 The LeOS9000 Bot features several commands and focuses on speedcubing. It has a cubing only mode which blocks all non cubing related commands from being used. This is especially useful 
 
