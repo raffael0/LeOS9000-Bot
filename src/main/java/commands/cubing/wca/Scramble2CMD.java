@@ -1,6 +1,6 @@
 package commands.cubing.wca;
 
-import util.ScrambleImageGenerator;
+import com.leonunner.javacube.cubes.Cube2;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
@@ -13,6 +13,8 @@ public class Scramble2CMD extends Command {
 
     @Override
     protected void execute(CommandEvent commandEvent) {
-        ScrambleImageGenerator.getWCA(commandEvent, "2");
+        Cube2 cube = new Cube2(commandEvent.getArgs(), false);
+        cube.updateFile();
+        commandEvent.reply(cube.getFile(), commandEvent.getArgs());
     }
 }

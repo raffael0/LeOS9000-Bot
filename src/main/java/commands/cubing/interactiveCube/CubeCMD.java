@@ -28,11 +28,7 @@ public class CubeCMD extends Command {
                     "For additional help, please join the support server. You can get an invite using " + BotUtil.getPrefix() + "invite");
             eb.addField("2x2", BotUtil.getPrefix() + "cube2", true);
             eb.addField("3x3", BotUtil.getPrefix() + "cube3", true);
-            eb.addField("Important", "cubes bigger than 3x3 are currently disabled.", true);
-            /*eb.addField("4x4", BotUtil.getPrefix() + "cube4", true);
-            eb.addField("5x5", BotUtil.getPrefix() + "cube5", true);
-            eb.addField("6x6", BotUtil.getPrefix() + "cube6", true);
-            eb.addField("7x7", BotUtil.getPrefix() + "cube7", true);*/
+            eb.addField("Important", "cubes bigger than 3x3 are currently disabled and will be added back soon.", true);
             eb.setColor(Color.RED);
             event.reply(eb.build());
         } else if(event.getArgs().equals("info")){
@@ -52,7 +48,7 @@ public class CubeCMD extends Command {
             } else
                 event.reply("Error, you do not have any cubes at the moment!");
         } else
-            event.reply("Error, invalid arguments. Try using `" + BotUtil.getPrefix() + "cube info` or " + BotUtil.getPrefix() + "cube help` instead");
+            event.reply("Error, invalid arguments. Try using `" + BotUtil.getPrefix() + "cube info` or `" + BotUtil.getPrefix() + "cube help` instead");
 
     }
 }

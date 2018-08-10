@@ -52,8 +52,8 @@ public class Main {
         JDABuilder builder = new JDABuilder(AccountType.BOT).setToken(token).setAutoReconnect(true);
         cbuilder = new CommandClientBuilder().setPrefix(BotUtil.getPrefix()).setOwnerId(BotUtil.getOwner());
 
-        cbuilder.addCommands(new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new Scramble4CMD(), new Scramble5CMD(), new Scramble6CMD(), new Scramble7CMD(), new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(),
-                new MoveCMD(), new SelectCMD(), new CubeCMD(), new InteractiveCube2(), new InteractiveCube3(),/* new InteractiveCube4(), new InteractiveCube5(), new InteractiveCube6(), new InteractiveCube7(),*/new GlobalChatCMD(), new GlobalServerRemove(),
+        cbuilder.addCommands(new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(),
+                new MoveCMD(), new SelectCMD(), new CubeCMD(), new InteractiveCube2(), new InteractiveCube3(), new GlobalChatCMD(), new GlobalServerRemove(),
                 new GlobalChatKick(), new BannedServers(), new GlobalServer(), new UnbanAll(), new DisconnectAll(), new GithubCMD(), new InviteCMD(), new WebCMD(), new ImageCMD(), new FeedbackCommand(), new GameCommand(), new PrefixCommand(),
                 new RebootCommand(), new UpdateCommand(), new WatchingCommand(), new CubingCMD(), new ReplyToFeedbackCMD(), new InitCubingModeCMD(),
                 new GlobalServerList(), new ShutdownCommand());

@@ -2,6 +2,8 @@ package commands.cubing.interactiveCube.sizes;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import com.leonunner.javacube.cubes.Cube2;
+import com.leonunner.javacube.cubes.Cube3;
 import util.BotUtil;
 import util.CubeUtil;
 
@@ -26,7 +28,8 @@ public class InteractiveCube2 extends Command {
 
         if(event.getArgs().isEmpty()){
             if(u.hasCube(event.getAuthor().getId(), "2")){
-                u.getScramble(event, u.getUserScramble(id, "2"), "2");
+                Cube2 cube = new Cube2(u.getUserScramble(id, "2"), false);
+                event.reply(cube.getFile(), "scramble2-" + event.getAuthor().getName() + ".png");
             } else
                 event.reply("Error, you do not have a 2x2 cube at the moment! Type `" + BotUtil.getPrefix() +"cube2 start` to get one!");
         } else if(event.getArgs().equals("reset") && u.hasUser(id)){
