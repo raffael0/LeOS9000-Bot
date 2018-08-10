@@ -36,7 +36,7 @@ public class InteractiveCube3 extends Command {
         if (event.getArgs().isEmpty()) {
             if (u.hasCube(event.getAuthor().getId(), "3")) {
                 Cube3 cube = new Cube3(u.getUserScramble(id, "3"), false);
-                event.reply(cube.getFile(), "scramble3-" + event.getAuthor().getName() + ".png");
+                event.reply(cube.getFile(), "scramble-" + event.getAuthor().getName() + ".png");
             } else
                 event.reply("Error, you do not have a 3x3 cube at the moment! Type `" + BotUtil.getPrefix() + "cube3 start` to get one!");
         } else if (event.getArgs().equals("reset") && u.hasUser(id)) {

@@ -30,10 +30,10 @@ public class MoveCMD extends Command {
 
             if(u.hasCube(id, "3") &&u.getSelection(event.getAuthor().getId()).equals("3")){
                 Cube3 cube3 = new Cube3(u.getUserScramble(id, "3"), false);
-                event.reply(cube3.getFile(), "scramble3-" + event.getAuthor().getName() + ".png");
+                event.reply(cube3.getFile(), "scramble-" + event.getAuthor().getName() + ".png");
             } else if(u.hasCube(id, "2") && u.getSelection(event.getAuthor().getId()).equals("2")){
                 Cube2 cube2 = new Cube2(u.getUserScramble(id, "2"), false);
-                event.reply(cube2.getFile(), "scramble2-" + event.getAuthor().getName() + ".png");
+                event.reply(cube2.getFile(), "scramble-" + event.getAuthor().getName() + ".png");
             }
     }
 }

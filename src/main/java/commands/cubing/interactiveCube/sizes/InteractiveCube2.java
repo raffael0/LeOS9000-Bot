@@ -29,7 +29,7 @@ public class InteractiveCube2 extends Command {
         if(event.getArgs().isEmpty()){
             if(u.hasCube(event.getAuthor().getId(), "2")){
                 Cube2 cube = new Cube2(u.getUserScramble(id, "2"), false);
-                event.reply(cube.getFile(), "scramble2-" + event.getAuthor().getName() + ".png");
+                event.reply(cube.getFile(), "scramble-" + event.getAuthor().getName() + ".png");
             } else
                 event.reply("Error, you do not have a 2x2 cube at the moment! Type `" + BotUtil.getPrefix() +"cube2 start` to get one!");
         } else if(event.getArgs().equals("reset") && u.hasUser(id)){
