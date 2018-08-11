@@ -81,8 +81,8 @@
 
         <dependency>
             <groupId>com.leonunner</groupId>
-            <artifactId>JavaCube</artifactId>
-            <systemPath>${project.basedir}/src/main/resources/JavaCube.jar</systemPath>
+            <artifactId>javacube</artifactId>
+            <version>0.1</version>
         </dependency>
     </dependencies>
 
@@ -97,6 +97,11 @@
             <id>central</id>
             <name>bintray</name>
             <url>http://jcenter.bintray.com</url>
+        </repository>
+
+        <repository>
+            <id>javacube-repo</id>
+            <url>file:///${project.basedir}/javacube-repo</url>
         </repository>
     </repositories>
 </project>
