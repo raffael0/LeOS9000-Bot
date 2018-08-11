@@ -53,6 +53,7 @@ public class Main {
                 new RebootCommand(), new UpdateCommand(), new WatchingCommand(), new CubingCMD(), new ReplyToFeedbackCMD(), new InitCubingModeCMD(),
                 new GlobalServerList(), new ShutdownCommand());
 
+        cbuilder.setEmojis("✅", "❎", "⛔");
         CommandClient client = cbuilder.build();
 
         waiter = new EventWaiter();
