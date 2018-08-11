@@ -1,17 +1,10 @@
 package commands.cubing.interactiveCube.sizes;
 
 import com.leonunner.javacube.cubes.Cube3;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.entities.Message;
 import util.BotUtil;
 import util.CubeUtil;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.net.MalformedURLException;
 
 public class InteractiveCube3 extends Command {
 

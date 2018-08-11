@@ -12,11 +12,6 @@ import commands.cubing.interactiveCube.SelectCMD;
 import commands.cubing.wca.*;
 import commands.administration.serverOwner.CubingCMD;
 import commands.cubing.ScrambleCMD;
-import commands.cubing.subsets.cfop.CrossCMD;
-import commands.cubing.subsets.cfop.F2LCMD;
-import commands.cubing.subsets.cfop.OLLCMD;
-import commands.cubing.subsets.roux.CMLLCMD;
-import commands.cubing.subsets.roux.F2BCMD;
 import commands.fun.ImageCMD;
 import commands.fun.WebCMD;
 import commands.information.GithubCMD;
@@ -52,7 +47,7 @@ public class Main {
         JDABuilder builder = new JDABuilder(AccountType.BOT).setToken(token).setAutoReconnect(true);
         cbuilder = new CommandClientBuilder().setPrefix(BotUtil.getPrefix()).setOwnerId(BotUtil.getOwner());
 
-        cbuilder.addCommands(new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(), new CMLLCMD(), new F2BCMD(), new CrossCMD(), new F2LCMD(), new OLLCMD(),
+        cbuilder.addCommands(new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(),
                 new MoveCMD(), new SelectCMD(), new CubeCMD(), new InteractiveCube2(), new InteractiveCube3(), new GlobalChatCMD(), new GlobalServerRemove(),
                 new GlobalChatKick(), new BannedServers(), new GlobalServer(), new UnbanAll(), new DisconnectAll(), new GithubCMD(), new InviteCMD(), new WebCMD(), new ImageCMD(), new FeedbackCommand(), new GameCommand(), new PrefixCommand(),
                 new RebootCommand(), new UpdateCommand(), new WatchingCommand(), new CubingCMD(), new ReplyToFeedbackCMD(), new InitCubingModeCMD(),

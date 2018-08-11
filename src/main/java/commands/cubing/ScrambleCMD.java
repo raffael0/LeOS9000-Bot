@@ -22,7 +22,7 @@ public class ScrambleCMD extends Command {
         eb.setDescription("Use one of the following commands to an image of a given scramble. Put your scramble after the command, like this: \n\n-sc3 R U R' U'\n\nDifferent bot.commands:");
         eb.addField("wca", "sc2 - 2x2\nsc3 - 3x3", true);
         eb.addField("subsets", "cross - Cross\nf2l - F2L\noll - OLL\nf2b - F2B\ncmll - CMLL", true);
-        eb.setFooter("images are generated using VisualCube and JavaCube!", event.getSelfUser().getAvatarUrl());
+        eb.setFooter("images are generated using JavaCube!", event.getSelfUser().getAvatarUrl());
 
         event.reply(eb.build());
     }
