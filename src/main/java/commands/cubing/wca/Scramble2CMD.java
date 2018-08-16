@@ -15,6 +15,6 @@ public class Scramble2CMD extends Command {
     protected void execute(CommandEvent commandEvent) {
         Cube2 cube = new Cube2(commandEvent.getArgs(), false);
         cube.updateFile();
-        commandEvent.reply(cube.getFile(), commandEvent.getArgs());
+        commandEvent.reply(cube.getFile(), commandEvent.getArgs() + ".png");
     }
 }
