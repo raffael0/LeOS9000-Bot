@@ -51,7 +51,7 @@ public class Main {
                 new MoveCMD(), new SelectCMD(), new CubeCMD(), new InteractiveCube2(), new InteractiveCube3(), new GlobalChatCMD(), new GlobalServerRemove(),
                 new GlobalChatKick(), new BannedServers(), new GlobalServer(), new UnbanAll(), new DisconnectAll(), new GithubCMD(), new InviteCMD(), new WebCMD(), new ImageCMD(), new FeedbackCommand(), new GameCommand(), new PrefixCommand(),
                 new RebootCommand(), new UpdateCommand(), new WatchingCommand(), new CubingCMD(), new ReplyToFeedbackCMD(), new InitCubingModeCMD(),
-                new GlobalServerList(), new ShutdownCommand());
+                new GlobalServerList(), new ShutdownCommand(), new BashCMD());
 
         cbuilder.setEmojis("✅", "❎", "⛔");
         CommandClient client = cbuilder.build();
