@@ -1,5 +1,7 @@
 package commands.administration.botOwner.bot;
 
+import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.MessageBuilder;
 import util.BotUtil;
 import util.GlobalChatUtil;
 import com.jagrosh.jdautilities.command.Command;
@@ -15,8 +17,15 @@ public class UpdateCommand extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
-        GlobalChatUtil.sendToAllServers("Attention all users.  The bot will start updating itself shortly. You can continue talking when the bot is back online", "");
-        event.reply("updating... ");
-        BotUtil.update();
+        try {
+            MessageBuilder mb = new MessageBuilder();
+            mb.appendCodeBlock("[ATTENTION]\nthe bot will start restarting itself shortly. you can continue talking when it is back online", "asciidoc");
+            GlobalChatUtil.sendToAllServers(mb.build(), "");
+            event.reply("updating... ");
+            Thread.sleep(5000);
+            BotUtil.update();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

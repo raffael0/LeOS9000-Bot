@@ -22,6 +22,7 @@ public class GlobalServer extends Command {
         eb.addField("gsua", "unbans all servers", false);
         eb.addField("gsl", "returns a list of all connected servers including the id", false);
         eb.addField("gsrm", "kicks a server", false);
+        eb.addField("gst", "sends a message to every server", false);
         eb.setColor(Color.RED);
 
         event.reply(eb.build());

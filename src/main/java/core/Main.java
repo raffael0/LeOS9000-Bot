@@ -49,7 +49,8 @@ public class Main {
 
         cbuilder.addCommands(new ScrambleCMD(), new Scramble2CMD(), new Scramble3CMD(),
                 new MoveCMD(), new SelectCMD(), new CubeCMD(), new InteractiveCube2(), new InteractiveCube3(), new GlobalChatCMD(), new GlobalServerRemove(),
-                new GlobalChatKick(), new BannedServers(), new GlobalServer(), new UnbanAll(), new DisconnectAll(), new GithubCMD(), new InviteCMD(), new WebCMD(), new ImageCMD(), new FeedbackCommand(), new GameCommand(), new PrefixCommand(),
+                new GlobalChatKick(), new BannedServers(), new GlobalServer(), new UnbanAll(), new DisconnectAll(), new TellServer(), new GithubCMD(), new InviteCMD(), new WebCMD(), new ImageCMD(), new FeedbackCommand(), new GameCommand(), new PrefixCommand()
+                ,new StreamingCMD(), new ListeningCommand(),
                 new RebootCommand(), new UpdateCommand(), new WatchingCommand(), new CubingCMD(), new ReplyToFeedbackCMD(), new InitCubingModeCMD(),
                 new GlobalServerList(), new ShutdownCommand(), new BashCMD());
 

@@ -9,7 +9,6 @@ public class WatchingCommand extends Command {
         this.name="watching";
         this.ownerCommand=true;
         this.arguments="<game>";
-        this.cooldown=300;
         this.hidden=true;
     }
 

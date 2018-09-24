@@ -6,17 +6,6 @@ import org.json.simple.parser.ParseException;
 import java.io.*;
 
 public class BotUtil {
-    //TODO:add banned users in JSON
-    private static String[] banned = {"346295434546774016"};
-
-    public static boolean isAllowed(Message message){
-        for(String s : banned){
-            if(message.getAuthor().getId().equals(s)){
-                return false;
-            }
-        }
-        return true;
-    }
 
     static JSONObject getJSON(){
         JSONParser parser = new JSONParser();

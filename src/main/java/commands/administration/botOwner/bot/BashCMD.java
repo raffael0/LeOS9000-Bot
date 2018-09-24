@@ -16,6 +16,7 @@ public class BashCMD extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
+        System.out.println(event.getArgs());
         String result = "";
         try {
             Runtime r = Runtime.getRuntime();

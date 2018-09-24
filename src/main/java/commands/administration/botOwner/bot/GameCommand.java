@@ -9,7 +9,6 @@ public class GameCommand extends Command {
         this.name="game";
         this.ownerCommand=true;
         this.arguments="<game>";
-        this.cooldown=300;
         this.hidden=true;
     }
 

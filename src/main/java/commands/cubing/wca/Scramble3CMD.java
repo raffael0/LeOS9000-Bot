@@ -8,7 +8,7 @@ public class Scramble3CMD extends Command {
     public Scramble3CMD(){
         this.name="sc3";
         this.hidden=true;
-        this.aliases=new String[]{"scramble3", "sc"};
+        this.aliases=new String[]{"scramble3", "sc", "3x3"};
     }
 
     @Override

@@ -1,5 +1,6 @@
 package listeners;
 
+import net.dv8tion.jda.core.events.user.UserTypingEvent;
 import util.BotUtil;
 import util.GlobalChatUtil;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;

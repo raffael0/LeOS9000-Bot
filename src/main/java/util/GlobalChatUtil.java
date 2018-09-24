@@ -1,6 +1,8 @@
 package util;
 
 import core.Main;
+import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.MessageEmbed;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -121,6 +123,26 @@ public class GlobalChatUtil {
         for(int i = 0; i<arr.length; i++){
             if(!arr[i].equals(leaveOut)) {
                 Main.getJDA().getGuildById(arr[i]).getTextChannelsByName("global", true).get(0).sendMessage(content).queue();
+            }
+        }
+    }
+
+    public static void sendToAllServers(Message message, String leaveOut){
+        String[] arr = getIdArray();
+
+        for(int i = 0; i<arr.length; i++){
+            if(!arr[i].equals(leaveOut)) {
+                Main.getJDA().getGuildById(arr[i]).getTextChannelsByName("global", true).get(0).sendMessage(message).queue();
+            }
+        }
+    }
+
+    public static void sendToAllServers(MessageEmbed embed, String leaveOut){
+        String[] arr = getIdArray();
+
+        for(int i = 0; i<arr.length; i++){
+            if(!arr[i].equals(leaveOut)) {
+                Main.getJDA().getGuildById(arr[i]).getTextChannelsByName("global", true).get(0).sendMessage(embed).queue();
             }
         }
     }
