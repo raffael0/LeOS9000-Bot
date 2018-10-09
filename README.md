@@ -42,6 +42,6 @@ the bot will only respond to cubing related commands. This excludes the image an
 ```-cubing off```
 
 ## Feedback, Invite and Github
-The ```-feedback``` command allows you to give feedback to the bots developer, who might even respond to your feedback! just use ```-feedback [your feedback]```
+The ```-feedback``` command allows you to give feedback to the bots developer, who might even respond to your feedback! just use ```-feedback [your feedback]```.
 The ```-invite``` command returns a link to the support server and a link to invite the bot to your own server!
 The ```-github``` command returns a link to this github repo.
